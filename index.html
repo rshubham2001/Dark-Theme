@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode</title>
+    <style>
+        html, body{
+            height: 100%;
+            margin: 0;
+        }
+        .container{
+            height: 100%;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid black; */
+            height: 91%;
+            font-size: 50px;
+        }
+        .darkbox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid black; */
+            height: 91%;
+            font-size: 50px;
+            background: black;
+            color: red;
+        }
+        .light{
+            display: flex;
+            height: 5%;
+            /* border: 1px solid red; */
+            background-image: url("moon.png");
+            background-repeat: no-repeat;
+            background-size: 40px;
+            background-position: 99%;
+            padding-top: 25px;
+        }
+        .dark{
+            display: flex;
+            height: 5%;
+            /* border: 1px solid red; */
+            background-image: url("sun.png");
+            background-color: black;
+            background-repeat: no-repeat;
+            background-size: 40px;
+            background-position: 99%;
+            padding-top: 25px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="mode" class="light"></div>
+        <div id="main" class="box">
+            <h1>This is Dark Mode Testing.</h1>
+        </div>
+    </div>
+    <script>
+document.getElementById("mode").addEventListener("click",modeChange);
+function modeChange(){
+    let e = document.getElementById("mode");
+    let f = document.getElementById("main");
+    let i = e.classList.value;
+    if(i=="light"){
+        e.classList.remove("light");
+        e.classList.add("dark");
+        f.classList.remove("box");
+        f.classList.add("darkbox");
+    }
+    if(i=="dark"){
+        e.classList.remove("dark");
+        e.classList.add("light");    
+        f.classList.remove("darkbox");
+        f.classList.add("box");
+    }
+}
+    </script>
+</body>
+</html>
